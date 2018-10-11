@@ -1,0 +1,33 @@
+<div class="col-lg-12"></div>
+<div class="col-lg-12 blockHeader">My Product List</div>
+
+
+<div class="col-lg-12">
+  <br>
+
+</div>
+
+
+<div class="table-responsive">
+  <table class="table datatable-basic table-padding td-padding">
+    <thead>
+      <tr>
+        <th>Product Name
+        </th>
+        <th>Price
+        </th>
+        <th>Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of listMyProduct">
+        <td>{{product.productName}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div align="center" *ngIf = "listAllProduct && listAllProduct.length == 0"><strong>No Record Found</strong> </div>
+<button type="button" class="btn btn-primary" (click)="back()" > Back to Product List</button>
+</div>

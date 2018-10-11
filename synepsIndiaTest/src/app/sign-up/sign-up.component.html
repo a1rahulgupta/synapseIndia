@@ -1,0 +1,72 @@
+<div class="login-main">
+  <div class="container">
+
+    <div id="loginbox">
+      <div class="panel panel-info">
+        <div style="padding-top:30px" class="panel-body">
+          <form id="loginform" class="form-horizontal" [formGroup]="userSignUp" (ngSubmit)="signUp()" role="form">
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon">
+                <i class="icon-user"></i>
+              </span>
+              <input id="signUp-firstName" type="text" class="form-control" formControlName="firstName" autofocus placeholder="Please enter your first name">
+              <br>
+              <div *ngIf="userSignUp.controls['firstName'].touched">
+                <p class="form_error" *ngIf="userSignUp.controls['firstName'].hasError('requiredTrim')">please enter your firstname.</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon">
+                <i class="icon-user"></i>
+              </span>
+              <input id="signUp-lastName" type="text" class="form-control" formControlName="lastName" autofocus placeholder="Please enter your last Name">
+              <br>
+              <div *ngIf="userSignUp.controls['lastName'].touched">
+                <p class="form_error" *ngIf="userSignUp.controls['lastName'].hasError('requiredTrim')">please enter your lastname.</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon">
+                <i class="icon-user"></i>
+              </span>
+              <input id="signUp-email" type="email" class="form-control" formControlName="email" autofocus placeholder="Please enter your email">
+              <br>
+              <div *ngIf="userSignUp.controls['email'].touched">
+                <p class="form_error" *ngIf="userSignUp.controls['email'].hasError('requiredTrim')">please enter your email.</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon">
+                <i class="icon-lock"></i>
+              </span>
+              <input id="signUp-password" type="password" name="password" formControlName="password" class="form-control" placeholder="Please enter your Password">
+              <br>
+              <div *ngIf="userSignUp.controls['password'].touched">
+                <p class="form_error" *ngIf="userSignUp.controls['password'].hasError('requiredTrim')">please enter your password.</p>
+                <p class="form_error" *ngIf="userSignUp.controls['password'].hasError('pattern')">Password must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special
+                  character, and 5 to 15 characters long</p>
+              </div>
+            </div>
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon">
+                <i class="icon-lock"></i>
+              </span>
+              <input id="signUp-confirmPassword" type="password" name="confirmPassword" formControlName="confirmPassword" class="form-control" placeholder="Please enter your confirm Password">
+              <br>
+              <div *ngIf="userSignUp.controls['confirmPassword'].touched">
+                <p class="form_error" *ngIf="userSignUp.controls['confirmPassword'].hasError('requiredTrim')">please enter confirm password.</p>
+                <p class="form_error" *ngIf="!userSignUp.controls['confirmPassword'].hasError('requiredTrim') && userSignUp.hasError('mismatchedPasswords')">Confirm password does not match</p>
+              </div>
+            </div>
+            <div style="margin-top:10px" class="form-group">
+              <div class="col-sm-12 controls">
+                <button [disabled]="userSignUp.invalid" id="btn-login" type="submit" class="btn btn-primary"> Sign Up </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng4-loading-spinner> </ng4-loading-spinner>

@@ -1,0 +1,33 @@
+
+<div class="navbar navbar-inverse bg-indigo navbar-main navbar-fixed-top  header">
+
+    <li class="nav-item">
+            <a href="javascript:void(0)"  *ngIf="!api.loggedIn" class="navbar-brand" (click)="signInPopup()" style="font-size:20px">Login</a>
+        <a href="javascript:void(0)"  *ngIf="api.loggedIn" class="navbar-brand" (click)="signInPopup()" style="font-size:20px">Logout</a>
+        <span *ngIf="api.loggedIn" class="navbar-brand" style="font-size:20px">Hello User</span>
+        <a href="javascript:void(0)" *ngIf="api.loggedIn" routerLink="/productList" class="navbar-brand" style="font-size:20px">Product List</a>
+        <a href="javascript:void(0)" *ngIf="api.loggedIn" routerLink="/myProduct" class="navbar-brand" style="font-size:20px">My Products</a>
+        <a href="javascript:void(0)" *ngIf="!api.loggedIn"  class="navbar-brand" (click)="signUpPopup()" style="font-size:20px">Sign Up</a>
+
+    </li>
+
+</div>
+<p-dialog modal="true" [contentStyle]="{'overflow':'auto','height':'380px'}" header="Sign In" [width]="600" dismissableMask="true"
+    position="center" [(visible)]="signInDialoge">
+
+    <app-sign-in #SignInComponent></app-sign-in>
+
+
+
+</p-dialog>
+
+<p-dialog modal="true" [contentStyle]="{'overflow':'auto','height':'380px'}" header="Sign Up" [width]="600" dismissableMask="true"
+    position="center" [(visible)]="signUpDialoge">
+
+    <app-sign-up #SignUpComponent></app-sign-up>
+
+
+
+</p-dialog>
+
+
